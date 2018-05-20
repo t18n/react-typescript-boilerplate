@@ -4,7 +4,8 @@ class App extends Component {
   render() {
     return (
       <div>
-        <h1>First react app@</h1>
+        <h1>React App boilerplate</h1>
+        <small> From Turbo </small>
       </div>
     )
   }
