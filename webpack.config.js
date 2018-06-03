@@ -9,9 +9,13 @@ module.exports = {
     path: path.join(__dirname, '/dist'),
     filename: 'index.bundle.js'
   },
+  resolve: {
+    alias: {
+      Assets: path.resolve('src/assets/')
+    }
+  },
   module: {
-    rules: [
-      {
+    rules: [{
         test: /\.js$/, // The regular expression to take all .js* files for Babel to compile
         exclude: /node_modules/,
         use: {
@@ -25,6 +29,15 @@ module.exports = {
           'css-loader',
           'sass-loader'
         ]
+      },
+      {
+        test: /\.(png|jpg|gif|svg|jpeg)$/,
+        use: {
+          loader: "url-loader",
+          options: {
+            limit: 25000,
+          },
+        },
       }
     ],
   },
