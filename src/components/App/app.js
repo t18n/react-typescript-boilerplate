@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import icon from '../assets/images/webpack.png'
+import icon from '../../assets/images/webpack.png'
+import styles from './app.sass'
 
 class App extends Component {
   render() {
