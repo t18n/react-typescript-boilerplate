@@ -1,29 +1,31 @@
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: {
     main: ['babel-polyfill', './src/index.js'],
   },
-  output: {
-    path: path.join(__dirname, '/dist'),
-    filename: 'index.bundle.js'
-  },
   resolve: {
     alias: {
-      Assets: path.resolve('src/assets/')
+      Assets: path.resolve('src/assets/'),
+      Components: path.resolve('src/components/'),
+      Containers: path.resolve('src/containers/'),
     }
   },
   module: {
-    rules: [{
-        test: /\.js$/, // The regular expression to take all .js* files for Babel to compile
+    rules: [
+
+      // The regular expression to take all .js* files for Babel to compile
+      {
+        test: /\.js$/,
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader'
         }
       },
+
+      // Compile Styles
       {
         test: /\.(css|sass|scss)$/,
         use: [
@@ -32,26 +34,24 @@ module.exports = {
           'sass-loader'
         ]
       },
+
       {
         test: /\.(png|jpg|gif|svg|jpeg)$/,
         use: {
           loader: "url-loader",
           options: {
-            limit: 25000,
+            limit: 100000,
           },
         },
       }
+
     ],
-  },
-  optimization: {
-    minimizer: [
-      new OptimizeCSSAssetsPlugin({})
-    ]
   },
   plugins: [
     new HtmlWebpackPlugin({
       template: './src/index.html'
     }),
+    
     new MiniCssExtractPlugin({
       filename: "style.css"
     })

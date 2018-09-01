@@ -1,11 +1,14 @@
 import React from 'react'
+import icon from 'Assets/images/react-icon.png'
 
 const Header = (props) => {
   console.log(props);
   
   return (
-    <nav class="navbar navbar-light bg-light justify-content-center">
-      <a class="navbar-brand" href="#">{props.appName}</a>
+    <nav className="navbar navbar-light bg-light justify-content-center">
+      <a className="navbar-brand" href="#">
+      <img alt='React' src={icon} width="50"/> 
+      {props.appName}</a>
     </nav>
   );
 }
