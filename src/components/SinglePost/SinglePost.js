@@ -14,17 +14,17 @@ const images = [
 const SinglePost = (props) => {
   return (
     <div>
-      <div class="container mt-4">
+      <div className="container mt-4">
         <span className="text-muted mt-4 mb-4">
           * Images are credited to Unplash and Pixabay
           <br/>
           This section is made to test copy + display images in different formats
         </span>
 
-        <div class="card-columns mt-4">
+        <div className="card-columns mt-4">
           {
             images.map((obj, i) =>
-            <div class="card">
+            <div className="card" key={i}>
                 <img className="card-img-top"  alt={obj} key={i} src={obj}></img>
             </div>
             )
