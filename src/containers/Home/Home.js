@@ -1,5 +1,6 @@
 import React from 'react'
 import Header from 'Components/Header/Header';
+import SinglePost from '../../components/SinglePost/SinglePost';
 
 class Home extends React.Component {
   state = {
@@ -10,7 +11,10 @@ class Home extends React.Component {
   
   render() {
     return (
-      <Header appName={this.state.settings.appName} />
+      <div>
+        <Header appName={this.state.settings.appName} />
+        <SinglePost/>
+      </div>
     );
   }
 }
