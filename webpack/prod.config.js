@@ -71,6 +71,12 @@ module.exports = merge(baseConfig, {
   ],
 
   optimization: {
+    
+    // Extract common dependencies into an existing entry chunk or an entirely new chunk
+    splitChunks: {
+      chunks: 'all'
+    },
+
     minimizer: [
       // Minify CSS
       new OptimizeCSSAssetsPlugin({

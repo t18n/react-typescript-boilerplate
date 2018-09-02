@@ -3,6 +3,8 @@ const baseConfig = require('./base.config.js');
 
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
+//TODO: Add Lazy Loading, Optimize code splitting, Split chunks
+
 module.exports = merge(baseConfig, {
   // devtool: 'eval-source-map',
 
@@ -28,5 +30,10 @@ module.exports = merge(baseConfig, {
       filename: "style.css"
     }),
   ],
+
+  // Turn off performance hints during development
+  performance: {
+    hints: false,
+  },
 
 });
