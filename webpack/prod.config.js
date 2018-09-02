@@ -6,6 +6,8 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const CompressionPlugin = require('compression-webpack-plugin');
+
 
 module.exports = merge(baseConfig, {
 
@@ -56,7 +58,15 @@ module.exports = merge(baseConfig, {
       reportFilename: "report/dist.report.html",
       generateStatsFile: true,
       statsFilename: "report/dist.stats.json",
+    }),
 
+    // Compress
+    new CompressionPlugin({
+      asset: "compressed/[path].gz[query]",
+      algorithm: "gzip",
+      test: /\.js$|\.css$|\.html$/,
+      threshold: 10240,
+      minRatio: 0.8
     })
   ],
 
@@ -83,7 +93,8 @@ module.exports = merge(baseConfig, {
           },
           compress: true,
         },
-        cache: true
+        cache: true,
+        sourceMap: false,
       }),
 
     ]
