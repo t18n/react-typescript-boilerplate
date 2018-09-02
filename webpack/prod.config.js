@@ -5,6 +5,7 @@ const path = require('path');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = merge(baseConfig, {
 
@@ -47,6 +48,16 @@ module.exports = merge(baseConfig, {
     new MiniCssExtractPlugin({
       filename: "style.css"
     }),
+
+    // Create an interactive treemap visualization of the contents of all your bundles
+    new BundleAnalyzerPlugin({
+      analyzerMode: "static", // In static mode single HTML file with bundle report will be generated
+      openAnalyzer: true, // Automatically open report in default browser.
+      reportFilename: "report/dist.report.html",
+      generateStatsFile: true,
+      statsFilename: "report/dist.stats.json",
+
+    })
   ],
 
   optimization: {
@@ -65,9 +76,16 @@ module.exports = merge(baseConfig, {
 
       // Miniffy JS
       new UglifyJsPlugin({
-        extractComments: true,
+        uglifyOptions: {
+          output: {
+            comments: false,
+            beautify: false,
+          },
+          compress: true,
+        },
         cache: true
       }),
+
     ]
   }
 });
