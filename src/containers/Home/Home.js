@@ -1,6 +1,6 @@
 import React from 'react'
 import Header from 'Components/Header/Header';
-import SinglePost from '../../components/SinglePost/SinglePost';
+import Gallery from 'Components/Gallery/Gallery';
 
 class Home extends React.Component {
   state = {
@@ -13,7 +13,7 @@ class Home extends React.Component {
     return (
       <div>
         <Header appName={this.state.settings.appName} />
-        <SinglePost/>
+        <Gallery/>
       </div>
     );
   }
