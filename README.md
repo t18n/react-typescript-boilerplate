@@ -8,9 +8,10 @@ I present you **React Turbo Boilerplate**
 
 ### Specs
 1. `Webpack 4`
-2. `Bootstrap 4`
-3. `SASS` / `SCSS`
-4. `React-router`
+2. `Babel 7`
+3. `Bootstrap 4`
+4. `SASS` / `SCSS`
+5. `React-router`
 
 ### Structure
 *React Turbo Boilerplate* using  Component Container architecture, which help you to manage `stateful` and `stateless` component yet making it super flexible.
