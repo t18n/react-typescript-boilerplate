@@ -55,9 +55,9 @@ module.exports = merge(baseConfig, {
     new BundleAnalyzerPlugin({
       analyzerMode: "static", // In static mode single HTML file with bundle report will be generated
       openAnalyzer: true, // Automatically open report in default browser.
-      reportFilename: "report/dist.report.html",
+      reportFilename: "report/report.html",
       generateStatsFile: true,
-      statsFilename: "report/dist.stats.json",
+      statsFilename: "report/stats.json",
     }),
 
     // Compress
