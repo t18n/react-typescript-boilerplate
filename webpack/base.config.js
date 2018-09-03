@@ -3,6 +3,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const ImageminPlugin = require('imagemin-webpack-plugin').default
 
 module.exports = {
   entry: {
@@ -35,6 +36,38 @@ module.exports = {
           //   ]
           // }
         }
+      },
+
+      // Optimize imported images
+      {
+        test: /\.(gif|png|jpe?g|svg)$/i,
+        use: [
+          'file-loader',
+          {
+            loader: 'image-webpack-loader',
+            options: {
+              mozjpeg: {
+                progressive: true,
+                quality: 65
+              },
+              // optipng.enabled: false will disable optipng
+              optipng: {
+                enabled: false,
+              },
+              pngquant: {
+                quality: '65-90',
+                speed: 4
+              },
+              gifsicle: {
+                interlaced: false,
+              },
+              // the webp option will enable WEBP
+              webp: {
+                quality: 75
+              }
+            }
+          }
+        ],
       },
 
       // Encode imgs files using the Base64 encoding. 
@@ -74,5 +107,11 @@ module.exports = {
       { from: 'src/assets/images', to: 'assets/images' },
       { from: 'src/assets/photos', to: 'assets/photos' }
     ]),
+
+    new ImageminPlugin({
+      test: /\.(jpe?g|png|gif|svg)$/i,
+      cacheFolder: path.resolve('dist/assets/img-cached'),
+    })
+
   ]
 }
