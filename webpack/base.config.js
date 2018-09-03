@@ -8,7 +8,7 @@ const imageminMozjpeg = require('imagemin-mozjpeg');
 
 module.exports = {
   entry: {
-    main: ['babel-polyfill', './src/index.js'],
+    main: ['@babel/polyfill', './src/index.js'],
   },
   resolve: {
     alias: {

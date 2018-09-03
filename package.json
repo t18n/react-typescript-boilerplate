@@ -10,12 +10,13 @@
     "start": "webpack-dev-server --mode development --config webpack/dev.config.js --open --hot"
   },
   "devDependencies": {
-    "babel-core": "^6.26.3",
-    "babel-loader": "^7.1.4",
+    "@babel/core": "^7.0.0",
+    "@babel/plugin-proposal-class-properties": "^7.0.0",
+    "@babel/preset-env": "^7.0.0",
+    "@babel/preset-react": "^7.0.0",
+    "@babel/polyfill": "^7.0.0",
+    "babel-loader": "^8.0.0",
     "babel-plugin-import-inspector": "^2.0.0",
-    "babel-plugin-transform-class-properties": "^6.24.1",
-    "babel-preset-env": "^1.7.0",
-    "babel-preset-react": "^6.24.1",
     "bootstrap": "4.1.1",
     "compression-webpack-plugin": "^1.1.12",
     "copy-webpack-plugin": "^4.5.2",
@@ -43,7 +44,6 @@
     "webpack-merge": "^4.1.4"
   },
   "dependencies": {
-    "babel-polyfill": "^6.26.0",
     "react": "^16.3.2",
     "react-dom": "^16.3.2"
   },
