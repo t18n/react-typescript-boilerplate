@@ -7,6 +7,8 @@ before_install:
   - nvm install 8.0.0
   - curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --version 1.9.4
   - export PATH="$HOME/.yarn/bin:$PATH"
+  - node -v
+  - yarn -v
 
 install:
   - yarn
@@ -17,7 +19,7 @@ cache:
     - node_modules'
 
 script:
-  - yarn run build
+  - yarn build
 
 deploy:
   provider: pages
