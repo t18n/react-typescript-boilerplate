@@ -26,3 +26,4 @@ I present you **React Turbo Boilerplate**
 5. Uglify `CSS`, `JS`
 6. Automaticaly create `Analyzer` file after build
 7. Create `/compressed` folder for extra optimization (use optionally)
+8. Add Image optimization
