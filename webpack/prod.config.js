@@ -14,7 +14,7 @@ module.exports = merge(baseConfig, {
   // Define Build output
   output: {
     path: path.join(__dirname, '../dist'),
-    filename: 'index.bundle.js'
+    filename: '[name].[chunkhash].bundle.js'
   },
 
   module: {
@@ -73,8 +73,15 @@ module.exports = merge(baseConfig, {
   optimization: {
     
     // Extract common dependencies into an existing entry chunk or an entirely new chunk
+    // Code Splitting
     splitChunks: {
-      chunks: 'all'
+      chunks: 'all',
+      cacheGroups: {
+        utilities: {
+          test: /[\\/]src[\\/]utilities[\\/]/,
+          minSize: 0
+        }
+      }
     },
 
     minimizer: [
