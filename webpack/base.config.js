@@ -2,8 +2,9 @@ const path = require('path');
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+
 const ImageminPlugin = require('imagemin-webpack-plugin').default
+const imageminMozjpeg = require('imagemin-mozjpeg');
 
 module.exports = {
   entry: {
@@ -67,18 +68,31 @@ module.exports = {
     ],
   },
   plugins: [
+
+    // Initiate html template
     new HtmlWebpackPlugin({
       template: './src/index.html'
     }),
 
+    // Copy all assets to dist folder
     new CopyWebpackPlugin([
       { from: 'src/assets/images', to: 'assets/images' },
       { from: 'src/assets/photos', to: 'assets/photos' }
     ]),
 
+    // Optimmize images
     new ImageminPlugin({
       test: /\.(jpe?g|png|gif|svg)$/i,
+      include: [
+        path.resolve(__dirname, "dist/assets")
+      ],
       cacheFolder: path.resolve('dist/assets/img-cached'),
+      optipng: { optimizationLevel: 7 },
+      gifsicle: { optimizationLevel: 3 },
+      pngquant: { quality: '65-90', speed: 4 },
+      svgo: { removeViewBox: false },
+      jpegtran: null,
+      plugins: [imageminMozjpeg({ quality: 75 })]
     })
 
   ]
