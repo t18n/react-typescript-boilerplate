@@ -37,14 +37,30 @@ module.exports = {
         }
       },
 
+      // Encode imgs files using the Base64 encoding. 
+      // Keep limits below 25kb
+      // Example: Logo
       {
-        test: /\.(png|jpg|gif|svg|jpeg)$/,
+        test: /\.(png|jpg|gif|jpeg)$/,
         use: {
           loader: "url-loader",
           options: {
-            limit: 100000,
+            // Images larger than 25 KB won’t be inlined
+            limit: 100 * 1024
           },
         },
+      },
+
+      // Encode svg files using the URL encoding
+      // Keep limits below 15kb
+      // Example: Error page
+      {
+        test: /\.svg$/,
+        loader: 'svg-url-loader',
+        options: {
+          limit: 100 * 1024,
+          noquotes: true,
+        }
       }
 
     ],
