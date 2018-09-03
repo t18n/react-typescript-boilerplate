@@ -1,0 +1,16 @@
+language: node_js
+
+cache:
+  directories:
+    - node_modules
+
+script:
+  - yarn run build
+
+deploy:
+  provider: pages
+  skip-cleanup: true
+  github-token: $GITHUB_TOKEN # Generate your github token and pass secretly as a variable
+  keep-history: true
+  on:
+    branch: master
