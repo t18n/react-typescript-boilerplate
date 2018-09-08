@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from "react-router-dom";
+import PropTypes from 'prop-types';
 
 import styles from './Header.sass'
 import layout from 'Sass/partials/_layout.sass'
@@ -36,4 +37,9 @@ const Header = (props) => {
     </div>
   );
 }
+
+Header.propTypes = {
+  appName: PropTypes.string.isRequired,
+}
+
 export default Header
