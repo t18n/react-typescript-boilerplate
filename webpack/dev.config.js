@@ -16,8 +16,20 @@ module.exports = merge(baseConfig, {
         test: /\.(css|sass|scss)$/,
         use: [
           MiniCssExtractPlugin.loader,
-          'css-loader',
-          'sass-loader'
+          {
+            loader: 'css-loader',
+            options: {
+              // If disable CSS Modular
+              // modules: false,
+
+              // If enable CSS Modular, hence hashing classNames
+              modules: true,
+              localIdentName: '[local]'
+            }
+          },
+          {
+            loader: 'sass-loader'
+          }
         ]
       },
 

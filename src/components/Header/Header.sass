@@ -1,8 +1,84 @@
 @import '../../sass/variables.sass'
-  
-.container
-  border: 1px solid gray
-  background-color: $primary-color
 
-img
-  width: 300px
+.nav
+  height: 60px
+  width: 100%
+  background-color: #4d4d4d
+  position: relative
+  
+  .box
+    display: flex
+    align-items: center
+    padding: 7px 0px
+
+  .navHeader
+    display: inline
+    .navBrand
+      font-size: 22px
+      color: #fff
+      color: white
+      text-decoration: none
+      display: flex
+      height: 40px
+      align-items: center
+
+  .navBtn
+    display: none
+
+  .navLinks
+    display: inline
+    float: right
+    font-size: 18px
+    margin-left: auto
+    a
+      display: inline-block
+      padding: 13px 10px 13px 10px
+      text-decoration: none
+      color: #efefef
+      &:hover
+        background-color: rgba(0, 0, 0, 0.3)
+
+  #navCheck
+    display: none
+
+@media (max-width: 600px)
+  .nav
+    .navBtn
+      display: block
+      margin-left: auto
+      height: 50px
+      label
+        display: inline-block
+        width: 50px
+        height: 50px
+        padding: 13px
+        &:hover
+          background-color: rgba(0, 0, 0, 0.3)
+        span
+          display: block
+          width: 25px
+          height: 10px
+          border-top: 2px solid #eee
+    
+    .navBrand span
+      display: none
+
+    .navLinks
+      position: absolute
+      display: block
+      width: 100%
+      background-color: #333
+      height: 0px
+      transition: all 0.3s ease-in
+      overflow-y: hidden
+      top: 50px
+      left: 0px
+      a
+        display: block
+        width: 100%
+    #navCheck
+      &:not(:checked) + .navLinks
+        height: 0px
+      &:checked + .navLinks
+        height: calc(100vh - 50px)
+        overflow-y: auto

@@ -13,6 +13,8 @@ module.exports = {
   resolve: {
     alias: {
       Assets: path.resolve('src/assets/'),
+      Sass: path.resolve('src/sass/'),
+      Includes: path.resolve('src/includes/'),
       Components: path.resolve('src/components/'),
       Containers: path.resolve('src/containers/'),
     }
