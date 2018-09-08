@@ -6,7 +6,7 @@
   background-color: #4d4d4d
   position: relative
   
-  .box
+  .navInner
     display: flex
     align-items: center
     padding: 7px 0px
@@ -38,7 +38,7 @@
       &:hover
         background-color: rgba(0, 0, 0, 0.3)
 
-  #navCheck
+  .navMenuBtn
     display: none
 
 @media (max-width: 600px)
@@ -76,7 +76,7 @@
       a
         display: block
         width: 100%
-    #navCheck
+    .navMenuBtn
       &:not(:checked) + .navLinks
         height: 0px
       &:checked + .navLinks

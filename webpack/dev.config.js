@@ -19,9 +19,6 @@ module.exports = merge(baseConfig, {
           {
             loader: 'css-loader',
             options: {
-              // If disable CSS Modular
-              // modules: false,
-
               // If enable CSS Modular, hence hashing classNames
               modules: true,
               localIdentName: '[local]'

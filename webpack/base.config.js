@@ -8,7 +8,9 @@ const imageminMozjpeg = require('imagemin-mozjpeg');
 
 module.exports = {
   entry: {
-    main: ['@babel/polyfill', './src/index.js'],
+    main: [
+      // '@babel/polyfill', 
+      './src/index.js'],
   },
   resolve: {
     alias: {
@@ -28,16 +30,16 @@ module.exports = {
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
-          // options: {
-          //   presets: [
-          //     // Not compile our ES6 modules to CommonJs modules.
-          //     // Allow ES6 imports/exports to do tree-shaking
-          //     [
-          //       "es2015", { 
-          //         "modules": false 
-          //     }]
-          //   ]
-          // }
+          options: {
+            presets: [
+              // Not compile our ES6 modules to CommonJs modules.
+              // Allow ES6 imports/exports to do tree-shaking
+              [
+                "@babel/preset-env", { 
+                  "modules": false 
+              }]
+            ]
+          }
         }
       },
 
