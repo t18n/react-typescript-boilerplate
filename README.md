@@ -8,20 +8,22 @@ I present you **React Turbo Boilerplate**
 
 ### Prerequisite
 1. Package manager: Preferably `yarn` but `npm` is also compatible
-2. `Node` >=8.0.0 - Use `nvm` if you want to use different `node` version
+2. `Node` >=8.9.0 - Use `nvm` if you want to use different `node` version
    
 ### Specs
 1. `Webpack 4`
 2. `Babel 7`
 3. `SASS` / `SCSS`
 4. `React-router`
+5. `Props-type`
+6. `React-Helmet`
 
 ### Features
 1. SEO optimized
-  1. robots.txt
-  2. Auto generate sitemap
-  3. `meta` tags added allow easy configuration
-  4. Social media sharing optimized
+  * robots.txt
+  * Auto generate sitemap
+  * `meta` tags added allow easy configuration
+  * Social media sharing optimized
 2. Easy development experience with hot-loader
 3. Add `Polyfill` automatically to browser (This is redundant since Babel 7)
 4. Automatically resolve stastic path (like `Assets/images/img.png` instead of `../../assets/images/img.png`)

@@ -81,7 +81,9 @@ module.exports = {
     // Copy all assets to dist folder
     new CopyWebpackPlugin([
       { from: 'src/assets/images', to: 'assets/images' },
-      { from: 'src/assets/photos', to: 'assets/photos' }
+      { from: 'src/assets/photos', to: 'assets/photos' },
+      { from: 'src/config/sitemap.xml', to: 'sitemap.xml' },
+      { from: 'src/config/robots.txt', to: 'robots.txt' }
     ]),
 
     // Optimmize images
