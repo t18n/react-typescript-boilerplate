@@ -95,10 +95,10 @@ module.exports = {
       cacheFolder: path.resolve('dist/assets/img-cached'),
       optipng: { optimizationLevel: 7 },
       gifsicle: { optimizationLevel: 3 },
-      pngquant: { quality: '65-90', speed: 4 },
+      pngquant: { quality: '65-70', speed: 4 },
       svgo: { removeViewBox: false },
       jpegtran: null,
-      plugins: [imageminMozjpeg({ quality: 75 })]
+      plugins: [imageminMozjpeg({ quality: 50 })]
     })
 
   ]

@@ -4,7 +4,7 @@
   "main": "index.js",
   "author": "Turbo",
   "license": "MIT",
-  "description": "A Simple yet powerful React app with Webpack 4",
+  "description": "An up-to-date simple yet powerful and super flexible React app with Webpack 4, Babel 7",
   "scripts": {
     "build": "webpack --mode production --config webpack/prod.config.js",
     "start": "webpack-dev-server --mode development --config webpack/dev.config.js --open --hot"
@@ -12,10 +12,9 @@
   "devDependencies": {
     "@babel/core": "^7.0.0",
     "@babel/plugin-proposal-class-properties": "^7.0.0",
-    "@babel/polyfill": "^7.0.0",
     "@babel/preset-env": "^7.0.0",
     "@babel/preset-react": "^7.0.0",
-    "babel-loader": "^8.0.0",
+    "babel-loader": "^8.0.2",
     "babel-plugin-import-inspector": "^2.0.0",
     "compression-webpack-plugin": "^1.1.12",
     "copy-webpack-plugin": "^4.5.2",
