@@ -1,12 +1,12 @@
 const merge = require('webpack-merge');
-const baseConfig = require('./base.config.js');
 const path = require('path');
 
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
-const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin; // eslint-disable-line
 const CompressionPlugin = require('compression-webpack-plugin');
+const baseConfig = require('./base.config.js');
 
 
 module.exports = merge(baseConfig, {
@@ -14,7 +14,7 @@ module.exports = merge(baseConfig, {
   // Define Build output
   output: {
     path: path.join(__dirname, '../dist'),
-    filename: '[name].[chunkhash].bundle.js'
+    filename: '[name].[chunkhash].bundle.js',
   },
 
   module: {
@@ -33,13 +33,13 @@ module.exports = merge(baseConfig, {
 
               // If enable CSS Modular, hence hashing classNames
               modules: true,
-              localIdentName: '[hash:base64:6]'
-            }
+              localIdentName: '[hash:base64:6]',
+            },
           },
           {
-            loader: 'sass-loader'
-          }
-        ]
+            loader: 'sass-loader',
+          },
+        ],
       },
 
     ],
@@ -48,30 +48,30 @@ module.exports = merge(baseConfig, {
   plugins: [
     // Export CSS
     new MiniCssExtractPlugin({
-      filename: "style.css"
+      filename: 'style.css',
     }),
 
     // Create an interactive treemap visualization of the contents of all your bundles
     new BundleAnalyzerPlugin({
-      analyzerMode: "static", // In static mode single HTML file with bundle report will be generated
+      analyzerMode: 'static', // In static mode single HTML file with bundle report will be generated
       openAnalyzer: true, // Automatically open report in default browser.
-      reportFilename: "report/report.html",
+      reportFilename: 'report/report.html',
       generateStatsFile: true,
-      statsFilename: "report/stats.json",
+      statsFilename: 'report/stats.json',
     }),
 
     // Compress
     new CompressionPlugin({
-      asset: "compressed/[path].gz[query]",
-      algorithm: "gzip",
+      asset: 'compressed/[path].gz[query]',
+      algorithm: 'gzip',
       test: /\.js$|\.css$|\.html$/,
       threshold: 10240,
-      minRatio: 0.8
-    })
+      minRatio: 0.8,
+    }),
   ],
 
   optimization: {
-    
+
     // Extract common dependencies into an existing entry chunk or an entirely new chunk
     // Code Splitting
     splitChunks: {
@@ -79,9 +79,9 @@ module.exports = merge(baseConfig, {
       cacheGroups: {
         utilities: {
           test: /[\\/]src[\\/]utilities[\\/]/,
-          minSize: 0
-        }
-      }
+          minSize: 0,
+        },
+      },
     },
 
     minimizer: [
@@ -89,12 +89,12 @@ module.exports = merge(baseConfig, {
       new OptimizeCSSAssetsPlugin({
         cssProcessorPluginOptions: {
           preset: [
-            'default', 
-            { 
-              discardComments: { removeAll: true } 
-            }
+            'default',
+            {
+              discardComments: { removeAll: true },
+            },
           ],
-        }
+        },
       }),
 
       // Miniffy JS
@@ -110,6 +110,6 @@ module.exports = merge(baseConfig, {
         sourceMap: false,
       }),
 
-    ]
-  }
+    ],
+  },
 });

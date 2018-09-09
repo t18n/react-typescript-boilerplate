@@ -1,0 +1,4 @@
+# Third party
+**/node_modules
+dist/
+src/registerServiceWorker.js

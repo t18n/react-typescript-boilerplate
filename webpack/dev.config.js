@@ -1,16 +1,16 @@
 const merge = require('webpack-merge');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const baseConfig = require('./base.config.js');
 
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
-//TODO: Add Lazy Loading, Optimize code splitting, Split chunks
+// TODO: Add Lazy Loading, Optimize code splitting, Split chunks
 
 module.exports = merge(baseConfig, {
   // devtool: 'eval-source-map',
 
   module: {
     rules: [
-      
+
       // Compile Styles
       {
         test: /\.(css|sass|scss)$/,
@@ -21,13 +21,13 @@ module.exports = merge(baseConfig, {
             options: {
               // If enable CSS Modular, hence hashing classNames
               modules: true,
-              localIdentName: '[local]'
-            }
+              localIdentName: '[local]',
+            },
           },
           {
-            loader: 'sass-loader'
-          }
-        ]
+            loader: 'sass-loader',
+          },
+        ],
       },
 
     ],
@@ -36,7 +36,7 @@ module.exports = merge(baseConfig, {
   plugins: [
     // Export CSS
     new MiniCssExtractPlugin({
-      filename: "style.css"
+      filename: 'style.css',
     }),
   ],
 
