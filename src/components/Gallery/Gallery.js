@@ -1,4 +1,6 @@
 import React from 'react'
+import LazyLoad from 'react-lazyload';
+
 import { importAllImages, classes } from 'Includes/ultilities'
 
 import appStyles from 'Sass/app.sass'
@@ -6,6 +8,7 @@ import styles from './Gallery.sass'
 
 const photos = importAllImages(require.context('Assets/photos', false, /\.(png|jpe?g|svg)$/));
 
+// TODO: Update lazyload to Babel 7 compatible
 const Gallery = (props) => {
   return (
     <div>
@@ -19,9 +22,11 @@ const Gallery = (props) => {
         <div className={ classes([styles.masonryColumns, appStyles.mt30])}>
           {
             photos.map((obj, i) =>
-              <div className={styles.masonryItem} key={i}>
-                <img className={styles.masonryImg}  alt={obj} key={i} src={obj}></img>
-            </div>
+              <LazyLoad offset={100}>
+                <div className={styles.masonryItem} key={i}>
+                  <img className={styles.masonryImg} alt={obj} key={i} src={obj}></img>
+                </div>
+              </LazyLoad> 
             )
           }
         </div>
