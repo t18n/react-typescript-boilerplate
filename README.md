@@ -1,10 +1,6 @@
 ## React Turbo Boilerplate
 
-Hey all,
-
 As I am getting more ad more comfortable working with `React` and `Webpack` over time, I see a need of having a boilerplate that is scalable, customizable and experimentable. The boilerplate that does not requires you to `eject` and panic seeing hundred of packages installed, bunch of advanced script written to serve all purposes. The boilerplate that allow you to understand easily, but powerful and embrace good practices and workflow, optimizing for production, and most of all, does not do any magic.
-
-I present you **React Turbo Boilerplate**
 
 ### Prerequisite
 1. Package manager: Preferably `yarn` but `npm` is also compatible
