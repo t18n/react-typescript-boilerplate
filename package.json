@@ -34,7 +34,7 @@
     "imagemin-mozjpeg": "^7.0.0",
     "imagemin-webpack-plugin": "^2.2.0",
     "mini-css-extract-plugin": "^0.4.0",
-    "node-sass": "^4.9.3",
+    "node-sass": "^4.13.1",
     "optimize-css-assets-webpack-plugin": "^4.0.1",
     "prop-types": "^15.6.2",
     "react-helmet": "^5.2.0",
