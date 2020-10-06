@@ -1,0 +1,4 @@
+[build]
+  command = "yarn build"
+  publish = "dist"
+  environment = { IS_NETLIFY = "true", NODE_VERSION = "10.19.0", RUBY_VERSION = "2.6.2", YARN_VERSION = "1.22.4" }
