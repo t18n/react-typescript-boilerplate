@@ -9,7 +9,7 @@ import styles from './Gallery.sass';
 const photos = importAllImages(require.context('src/assets/photos', false, /\.(png|jpe?g|svg)$/));
 
 // TODO: Update lazyload to Babel 7 compatible
-const Gallery = () => (
+export const Gallery = () => (
   <div>
     <div className={classes([appStyles.box, appStyles.mt30])}>
       <span className={appStyles.mt30}>
@@ -20,16 +20,15 @@ const Gallery = () => (
 
       <div className={classes([styles.masonryColumns, appStyles.mt30])}>
 
-        { photos.map((obj) => (
+        {photos.map((obj) => (
           <LazyLoad offset={100} height={100} key={generateKey()}>
             <div className={styles.masonryItem} key={generateKey()}>
               <img className={styles.masonryImg} key={generateKey()} alt={obj} src={obj} />
             </div>
           </LazyLoad>
-        )) }
+        ))}
 
       </div>
     </div>
   </div>
 );
-export default Gallery;

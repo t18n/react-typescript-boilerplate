@@ -1,20 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
-
 import layout from 'src/styles/partials/_layout.sass';
 import icon from 'src/assets/images/logo.png';
 import { classes } from 'src/utils/common';
 import styles from './Header.sass';
 
-const Header = (props) => (
+export const Header = () => (
   <div className={styles.nav}>
     <div className={classes([layout.box, styles.navInner])}>
 
       <div className={styles.navHeader}>
         <a className={styles.navBrand} href="#/">
           <img alt="React" src={icon} width="50" />
-          <span>{props.appName}</span>
+          <span>import/prefer-default-export</span>
         </a>
       </div>
 
@@ -33,9 +31,3 @@ const Header = (props) => (
     </div>
   </div>
 );
-
-Header.propTypes = {
-  appName: PropTypes.string.isRequired,
-};
-
-export default Header;
