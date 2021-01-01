@@ -1,7 +1,6 @@
-const merge = require('webpack-merge');
+const { merge } = require('webpack-merge');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const baseConfig = require('./base.config.js');
-
 
 // TODO: Add Lazy Loading, Optimize code splitting, Split chunks
 
@@ -19,9 +18,10 @@ module.exports = merge(baseConfig, {
           {
             loader: 'css-loader',
             options: {
-              // If enable CSS Modular, hence hashing classNames
-              modules: true,
-              localIdentName: '[local]',
+              modules: {
+                localIdentName: '[name]__[local]',
+              },
+              sourceMap: false,
             },
           },
           {

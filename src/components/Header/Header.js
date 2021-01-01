@@ -7,7 +7,7 @@ import icon from 'Assets/images/react-icon.png';
 import { classes } from 'Includes/ultilities';
 import styles from './Header.sass';
 
-const Header = props => (
+const Header = (props) => (
   <div className={styles.nav}>
     <div className={classes([layout.box, styles.navInner])}>
 

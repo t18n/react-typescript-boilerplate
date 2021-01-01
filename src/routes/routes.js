@@ -4,7 +4,6 @@ import { HashRouter, Route, Switch } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import favicon from 'Assets/images/favicon.png';
 
-
 import Home from 'Containers/Home/Home';
 import Login from 'Containers/Login/Login';
 import NotFound404 from 'Containers/404/404';

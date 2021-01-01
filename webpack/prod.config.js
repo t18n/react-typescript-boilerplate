@@ -1,13 +1,11 @@
-const merge = require('webpack-merge');
+const { merge } = require('webpack-merge');
 const path = require('path');
-
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin; // eslint-disable-line
 const CompressionPlugin = require('compression-webpack-plugin');
 const baseConfig = require('./base.config.js');
-
 
 module.exports = merge(baseConfig, {
 
@@ -28,12 +26,10 @@ module.exports = merge(baseConfig, {
           {
             loader: 'css-loader',
             options: {
-              // If disable CSS Modular
-              // modules: false,
-
-              // If enable CSS Modular, hence hashing classNames
-              modules: true,
-              localIdentName: '[hash:base64:6]',
+              modules: {
+                localIdentName: '[name]__[local]___[hash:base64:5]',
+              },
+              sourceMap: true,
             },
           },
           {
@@ -62,9 +58,9 @@ module.exports = merge(baseConfig, {
 
     // Compress
     new CompressionPlugin({
-      asset: 'compressed/[path].gz[query]',
-      algorithm: 'gzip',
       test: /\.js$|\.css$|\.html$/,
+      deleteOriginalAssets: false,
+      algorithm: 'gzip',
       threshold: 10240,
       minRatio: 0.8,
     }),

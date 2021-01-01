@@ -1,16 +1,14 @@
 const path = require('path');
 
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-
 const ImageminPlugin = require('imagemin-webpack-plugin').default;
 const imageminMozjpeg = require('imagemin-mozjpeg');
 
 module.exports = {
   entry: {
-    main: [
-      // '@babel/polyfill',
-      './src/index.js'],
+    main: ['./src/index.js'],
   },
   resolve: {
     alias: {
@@ -51,8 +49,8 @@ module.exports = {
         use: {
           loader: 'url-loader',
           options: {
-            // Images larger than 25 KB won’t be inlined
-            limit: 100 * 1024,
+            limit: 100 * 1024, // Images larger than 25 KB won’t be inlined
+            esModule: false,
           },
         },
       },
@@ -72,6 +70,8 @@ module.exports = {
     ],
   },
   plugins: [
+    // Clean bundle
+    new CleanWebpackPlugin(),
 
     // Initiate html template
     new HtmlWebpackPlugin({
@@ -79,12 +79,14 @@ module.exports = {
     }),
 
     // Copy all assets to dist folder
-    new CopyWebpackPlugin([
-      { from: 'src/assets/images', to: 'assets/images' },
-      { from: 'src/assets/photos', to: 'assets/photos' },
-      { from: 'src/config/sitemap.xml', to: 'sitemap.xml' },
-      { from: 'src/config/robots.txt', to: 'robots.txt' },
-    ]),
+    new CopyWebpackPlugin({
+      patterns: [
+        { from: 'src/assets/images', to: 'assets/images' },
+        { from: 'src/assets/photos', to: 'assets/photos' },
+        { from: 'src/config/sitemap.xml', to: 'sitemap.xml' },
+        { from: 'src/config/robots.txt', to: 'robots.txt' },
+      ],
+    }),
 
     // Optimmize images
     new ImageminPlugin({
