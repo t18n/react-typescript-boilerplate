@@ -2,9 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-import layout from 'Sass/partials/_layout.sass';
-import icon from 'Assets/images/react-icon.png';
-import { classes } from 'Includes/ultilities';
+import layout from 'src/styles/partials/_layout.sass';
+import icon from 'src/assets/images/logo.png';
+import { classes } from 'src/utils/common';
 import styles from './Header.sass';
 
 const Header = (props) => (

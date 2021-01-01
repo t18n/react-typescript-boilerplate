@@ -1,5 +1,5 @@
 // This function helps import multiple images from a folder
-// Usage : const photos = importAll(require.context('Assets/photos', false, /\.(png|jpe?g|svg)$/));
+// Usage : const photos = importAll(require.context('src/assets/photos', false, /\.(png|jpe?g|svg)$/));
 export function importAllImages(r) {
   return r.keys().map(r);
 }

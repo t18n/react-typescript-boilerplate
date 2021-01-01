@@ -4,7 +4,7 @@ A simple React boilerplate that allow you to understand easily, embrace good pra
 
 ### Features
 - [x] Hot-loader
-- [x] Absolute import (like `Assets/images/img.png` instead of `../../assets/images/img.png`)
+- [x] Absolute import (like `src/assets/images/img.png` instead of `../../assets/images/img.png`)
 - [x] Style with `SASS` / `SCSS`
 - [x] Bundle optimization:
   * `CSS` bundle with option to easily hash className with CSS module

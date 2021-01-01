@@ -1,8 +1,8 @@
 import React from 'react';
-import Header from 'Components/Header/Header';
+import Header from 'src/components/Header/Header';
 
-import appStyles from 'Sass/app.sass';
-import { classes } from 'Includes/ultilities';
+import appStyles from 'src/styles/app.sass';
+import { classes } from 'src/utils/common';
 
 class Login extends React.Component {
   state = {

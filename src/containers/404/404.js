@@ -1,9 +1,9 @@
 import React from 'react';
-import Header from 'Components/Header/Header';
-import Img from 'Assets/photos/animals-1782013.svg';
+import Header from 'src/components/Header/Header';
+import Img from 'src/assets/photos/animals-1782013.svg';
 
-import appStyles from 'Sass/app.sass';
-import { classes } from 'Includes/ultilities';
+import appStyles from 'src/styles/app.sass';
+import { classes } from 'src/utils/common';
 
 class NotFound404 extends React.Component {
   state = {

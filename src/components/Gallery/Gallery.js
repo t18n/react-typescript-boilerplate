@@ -1,17 +1,17 @@
 import React from 'react';
 import LazyLoad from 'react-lazyload';
 
-import { importAllImages, classes, generateKey } from 'Includes/ultilities';
+import { importAllImages, classes, generateKey } from 'src/utils/common';
 
-import appStyles from 'Sass/app.sass';
+import appStyles from 'src/styles/app.sass';
 import styles from './Gallery.sass';
 
-const photos = importAllImages(require.context('Assets/photos', false, /\.(png|jpe?g|svg)$/));
+const photos = importAllImages(require.context('src/assets/photos', false, /\.(png|jpe?g|svg)$/));
 
 // TODO: Update lazyload to Babel 7 compatible
 const Gallery = () => (
   <div>
-    <div key="31341" className={classes([appStyles.box, appStyles.mt30])}>
+    <div className={classes([appStyles.box, appStyles.mt30])}>
       <span className={appStyles.mt30}>
         * Images are credited to Unplash and Pixabay
         <br />

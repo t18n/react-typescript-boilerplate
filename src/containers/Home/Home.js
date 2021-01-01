@@ -1,6 +1,6 @@
 import React from 'react';
-import Header from 'Components/Header/Header';
-import Gallery from 'Components/Gallery/Gallery';
+import Header from 'src/components/Header/Header';
+import Gallery from 'src/components/Gallery/Gallery';
 
 class Home extends React.Component {
   state = {
