@@ -8,7 +8,7 @@ import { classes } from 'Includes/ultilities';
 class NotFound404 extends React.Component {
   state = {
     settings: {
-      appName: 'Turbo React Boilerplate',
+      appName: 'React SASS Boilerplate',
     },
   }
 

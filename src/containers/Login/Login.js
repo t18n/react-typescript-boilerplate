@@ -7,7 +7,7 @@ import { classes } from 'Includes/ultilities';
 class Login extends React.Component {
   state = {
     settings: {
-      appName: 'Turbo React Boilerplate',
+      appName: 'React React Boilerplate',
     },
   }
 

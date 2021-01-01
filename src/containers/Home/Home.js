@@ -5,7 +5,7 @@ import Gallery from 'Components/Gallery/Gallery';
 class Home extends React.Component {
   state = {
     settings: {
-      appName: 'Turbo React Boilerplate',
+      appName: 'React SASS Boilerplate',
     },
   }
 

@@ -1,8 +1,8 @@
 {
-  "name": "react-turbo-boilerplate",
+  "name": "react-sass-boilerplate",
   "version": "2.1.0",
   "main": "index.js",
-  "author": "Turbo",
+  "author": "Turbo<me@turbothinh.com>",
   "license": "MIT",
   "description": "An up-to-date simple yet powerful and super flexible React app with Webpack 4, Babel 7",
   "scripts": {
