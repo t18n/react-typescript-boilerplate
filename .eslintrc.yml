@@ -1,35 +1,13 @@
-# By default, ESLint expects ECMAScript 5 syntax, specify ES6 instead
-parser: babel-eslint
-
-#  Use Airbnb style guide
-extends: airbnb
-
-rules:
-  # Airbnb Style Guide suggest `jsx` for jsx syntax, we change it to js to avoid errors
-  react/jsx-filename-extension:
-    - 1
-    - extensions:
-      - ".js"
-  
-  # Turn off warning devDependencies, remember to turn on if using CD
-  import/no-extraneous-dependencies:
-    - error
-    - devDependencies: true
-
-  react/destructuring-assignment:
-    - off
-
-  import/prefer-default-export:
-    - off
-
-env:
-  es6: true # enable all ECMAScript 6 features except for modules (this automatically sets the ecmaVersion parser option to 6).
-  browser: true # browser global variables
-  node: true # Node.js global variables and Node.js scoping.
-
-settings:
-  # Import resolver from Webpack, avoid "cannot resolve path"
-  # Plugin: eslint-import-resolver-webpack
-  import/resolver:
-    webpack:
-      config: 'webpack/base.config.js'
+{
+  parser: 'babel-eslint',
+  extends: 'airbnb',
+  env: { es6: true, browser: true, node: true },
+  settings: { 'import/resolver': { webpack: { config: 'webpack/base.config.js' } } },
+  rules:
+    {
+      'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx', '.ts', '.tsx'] }],
+      'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
+      'react/destructuring-assignment': ['off'],
+      'import/prefer-default-export': ['off'],
+    },
+}

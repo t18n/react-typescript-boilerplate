@@ -8,7 +8,7 @@ const imageminMozjpeg = require('imagemin-mozjpeg');
 
 module.exports = {
   entry: {
-    main: ['./src/index.js'],
+    main: ['./src/index.tsx'],
   },
   resolve: {
     alias: {
@@ -17,24 +17,15 @@ module.exports = {
   },
   module: {
     rules: [
-
       // The regular expression to take all .js* files for Babel to compile
       {
+        test: /\.(t|j)sx?$/,
+        use: { loader: 'awesome-typescript-loader' },
+      },
+      {
+        enforce: 'pre',
         test: /\.js$/,
-        exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader',
-          options: {
-            presets: [
-              // Not compile our ES6 modules to CommonJs modules.
-              // Allow ES6 imports/exports to do tree-shaking
-              [
-                '@babel/preset-env', {
-                  modules: false,
-                }],
-            ],
-          },
-        },
+        loader: 'source-map-loader',
       },
 
       // Encode imgs files using the Base64 encoding.
