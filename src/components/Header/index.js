@@ -12,7 +12,7 @@ export const Header = () => (
       <div className={styles.navHeader}>
         <a className={styles.navBrand} href="#/">
           <img alt="React" src={icon} width="50" />
-          <span>import/prefer-default-export</span>
+          <span>React Boilerplate</span>
         </a>
       </div>
 
