@@ -1,4 +1,4 @@
-declare module '*.scss'; 
+declare module '*.scss';
 declare module '*.sass';
 
 declare module '*.png';

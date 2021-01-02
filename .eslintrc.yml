@@ -1,8 +1,22 @@
 {
-  parser: 'babel-eslint',
-  extends: 'airbnb',
-  env: { es6: true, browser: true, node: true },
-  settings: { 'import/resolver': { webpack: { config: 'webpack/base.config.js' } } },
+  extends: 'airbnb-typescript',
+  parserOptions: {
+    project: './tsconfig.json',
+  },
+  env: {
+    es6: true,
+    browser: true,
+    node: true
+  },
+  settings: {
+    'import/resolver':
+    { webpack:
+      {
+        config:
+      'webpack/base.config.js'
+      }
+    }
+  },
   rules:
     {
       'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx', '.ts', '.tsx'] }],

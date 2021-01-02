@@ -20,6 +20,7 @@ A simple React Typescript boilerplate that allow you to understand easily, embra
   * `meta` tags added allow easy configuration
   * Social media sharing optimized
 - [x] Netlify config for easy deployment
+- [x] Commit hook with Husky
 
 ### Get started
 - To run the app: `yarn start`
