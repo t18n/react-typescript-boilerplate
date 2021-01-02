@@ -11,6 +11,7 @@ module.exports = {
     main: ['./src/index.tsx'],
   },
   resolve: {
+    extensions: ['.tsx', '.ts', '.js', '.jsx'],
     alias: {
       src: path.resolve('src'),
     },
@@ -19,12 +20,12 @@ module.exports = {
     rules: [
       // The regular expression to take all .js* files for Babel to compile
       {
-        test: /\.(t|j)sx?$/,
-        use: { loader: 'awesome-typescript-loader' },
+        test: /\.(tsx?|jsx?)$/,
+        use: { loader: 'ts-loader' },
       },
       {
         enforce: 'pre',
-        test: /\.js$/,
+        test: /\.(tsx?|jsx?)$/,
         loader: 'source-map-loader',
       },
 

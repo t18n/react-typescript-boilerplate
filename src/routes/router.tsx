@@ -11,8 +11,7 @@ import { NotFound404 } from 'src/pages/404';
 // TODO: Add HOC Lazyloader using `react-loadable`. Wait for Babel 7 support release.
 // import { Home, Login, NotFound404 } from './lazyLoader'
 
-const router = () => (
-
+export const Router = () => (
   // Using HashRouter to allow entering an URL directly, you can try to find some workaround for
   // BrowserRouter or Router with `history`. This aim to keep the code short and simple.
   <HashRouter>
@@ -29,4 +28,3 @@ const router = () => (
     </div>
   </HashRouter>
 );
-export default router;

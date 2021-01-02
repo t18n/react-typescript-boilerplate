@@ -4,7 +4,7 @@ import { Gallery } from 'src/components/Gallery';
 
 export const Home = () => (
   <div>
-    <Header appName="React Typescript Boilerplate" />
+    <Header />
     <Gallery />
   </div>
 );

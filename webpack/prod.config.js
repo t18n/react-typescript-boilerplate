@@ -8,7 +8,6 @@ const CompressionPlugin = require('compression-webpack-plugin');
 const baseConfig = require('./base.config.js');
 
 module.exports = merge(baseConfig, {
-
   // Define Build output
   output: {
     path: path.join(__dirname, '../dist'),
